@@ -36,6 +36,18 @@ fi
 # General UI/UX                                                               #
 ###############################################################################
 
+# Number formatting
+defaults write -g AppleICUNumberSymbols -dict 0 '.' 1 ' ' 10 '.' 17 ' '
+
+# Location settings
+defaults write -g AppleLocale -string "en_BE@currency=EUR"
+defaults write -g AppleMeasurementUnits -string "Centimeters"
+defaults write -g AppleMetricUnits -bool true
+defaults write -g AppleTemperatureUnit -string "Celsius"
+defaults write -g NSAutomaticPeriodSubstitutionEnabled -bool false
+defaults write -gt  NSSpellCheckerAutomaticallyIdentifiesLanguages -bool true
+
+
 # Expand save panel by default
 defaults write NSGlobalDomain NSNavPanelExpandedStateForSaveMode -bool true
 

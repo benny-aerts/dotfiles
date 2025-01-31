@@ -30,14 +30,11 @@ alias bc='bc -l'
 alias sha1='openssl sha1'
 
 #5: Create parent directories on demand
-mkdir command is used to create a directory:
-
 alias mkdir='mkdir -pv'
 #6: Colorize diff output
-You can compare files line by line using diff and use a tool called colordiff to colorize diff output:
 
 # install  colordiff package :)
-alias diff='colordiff'
+#alias diff='colordiff'
 #7: Make mount command output pretty and human readable format
 alias mount='mount |column -t'
 #8: Command short cuts to save time
@@ -61,18 +58,18 @@ alias ping='ping -c 5'
 alias fastping='ping -c 100 -s.2'
 
 #12: Show open ports
-Use netstat command to quickly list all TCP/UDP port on the server:
+#Use netstat command to quickly list all TCP/UDP port on the server:
 
 alias ports='netstat -tulanp'
 #13: Wakeup sleeping servers
-Wake-on-LAN (WOL) is an Ethernet networking standard that allows a server to be turned on by a network message. You can quickly wakeup nas devices and server using the following aliases:
+#Wake-on-LAN (WOL) is an Ethernet networking standard that allows a server to be turned on by a network message. You can quickly wakeup nas devices and server using the following aliases:
 
 ## replace mac with your actual server mac address #
 alias wakeupnas01='/usr/bin/wakeonlan 00:11:32:11:15:FC'
 alias wakeupnas02='/usr/bin/wakeonlan 00:11:32:11:15:FD'
 alias wakeupnas03='/usr/bin/wakeonlan 00:11:32:11:15:FE'
 #14: Control firewall (iptables) output
-Netfilter is a host-based firewall for Linux operating systems. It is included as part of the Linux distribution and it is activated by default. This post list most common iptables solutions required by a new Linux user to secure his or her Linux operating system from intruders.
+#Netfilter is a host-based firewall for Linux operating systems. It is included as part of the Linux distribution and it is activated by default. This post list most common iptables solutions required by a new Linux user to secure his or her Linux operating system from intruders.
 
 ## shortcut  for iptables and pass it via sudo#
 alias ipt='sudo /sbin/iptables'
@@ -91,7 +88,7 @@ alias header='curl -I'
 alias headerc='curl -I --compress'
 #16: Add safety nets
 # do not delete / or prompt if deleting more than 3 files at a time #
-alias rm='rm -I --preserve-root'
+#alias rm='rm -I --preserve-root'
 
 # confirmation #
 alias mv='mv -i'
@@ -103,7 +100,7 @@ alias chown='chown --preserve-root'
 alias chmod='chmod --preserve-root'
 alias chgrp='chgrp --preserve-root'
 #17: Update Debian Linux server
-apt-get command is used for installing packages over the internet (ftp or http). You can also upgrade all packages in a single operations:
+#apt-get command is used for installing packages over the internet (ftp or http). You can also upgrade all packages in a single operations:
 
 # distro specific  - Debian / Ubuntu and friends #
 # install with apt-get
@@ -113,7 +110,7 @@ alias updatey="sudo apt-get --yes"
 # update on one command
 alias update='sudo apt-get update && sudo apt-get upgrade'
 #18: Update RHEL / CentOS / Fedora Linux server
-yum command is a package management tool for RHEL / CentOS / Fedora Linux and friends:
+#yum command is a package management tool for RHEL / CentOS / Fedora Linux and friends:
 
 ## distrp specifc RHEL/CentOS ##
 alias update='yum update'
@@ -123,7 +120,7 @@ alias updatey='yum -y update'
 alias root='sudo -i'
 alias su='sudo -i'
 #20: Pass halt/reboot via sudo
-shutdown command bring the Linux / Unix system down:
+#shutdown command bring the Linux / Unix system down:
 
 # reboot / halt / poweroff
 alias reboot='sudo /sbin/reboot'
@@ -170,7 +167,7 @@ alias nplaymp3='for i in /nas/multimedia/mp3/*.mp3; do mplayer "$i"; done'
 # shuffle mp3/ogg etc by default #
 alias music='mplayer --shuffle *'
 #24: Set default interfaces for sys admin related commands
-vnstat is console-based network traffic monitor. dnstop is console tool to analyze DNS traffic. tcptrack and iftop commands displays information about TCP/UDP connections it sees on a network interface and display bandwidth usage on an interface by host respectively.
+#vnstat is console-based network traffic monitor. dnstop is console tool to analyze DNS traffic. tcptrack and iftop commands displays information about TCP/UDP connections it sees on a network interface and display bandwidth usage on an interface by host respectively.
 
 ## All of our servers eth1 is connected to the Internets via vlan / router etc  ##
 alias dnstop='dnstop -l 5  eth1'
@@ -203,7 +200,7 @@ alias cpuinfo='lscpu'
 ## get GPU ram on desktop / laptop##
 alias gpumeminfo='grep -i --color memory /var/log/Xorg.0.log'
 #26: Control Home Router
-The curl command can be used to reboot Linksys routers.
+#The curl command can be used to reboot Linksys routers.
 
 # Reboot my home Linksys WAG160N / WAG54 / WAG320 / WAG120N Router / Gateway from *nix.
 alias rebootlinksys="curl -u 'admin:my-super-password' 'http://192.168.1.2/setup.cgi?todo=reboot'"
@@ -211,7 +208,7 @@ alias rebootlinksys="curl -u 'admin:my-super-password' 'http://192.168.1.2/setup
 # Reboot tomato based Asus NT16 wireless bridge
 alias reboottomato="ssh admin@192.168.1.1 /sbin/reboot"
 #27 Resume wget by default
-The GNU Wget is a free utility for non-interactive download of files from the Web. It supports HTTP, HTTPS, and FTP protocols, and it can resume downloads too:
+#The GNU Wget is a free utility for non-interactive download of files from the Web. It supports HTTP, HTTPS, and FTP protocols, and it can resume downloads too:
 
 ## this one saved by butt so many times ##
 alias wget='wget -c'
@@ -228,17 +225,17 @@ alias ff=ff13
 #my default browser
 alias browser=chrome
 #29: A note about ssh alias
-Do not create ssh alias, instead use ~/.ssh/config OpenSSH SSH client configuration files. It offers more option. An example:
+#Do not create ssh alias, instead use ~/.ssh/config OpenSSH SSH client configuration files. It offers more option. An example:
 
-Host server10
-  Hostname 1.2.3.4
-  IdentityFile ~/backups/.ssh/id_dsa
-  user foobar
-  Port 30000
-  ForwardX11Trusted yes
-  TCPKeepAlive yes
-You can now connect to peer1 using the following syntax:
-$ ssh server10
+#Host server10
+#  Hostname 1.2.3.4
+#  IdentityFile ~/backups/.ssh/id_dsa
+#  user foobar
+#  Port 30000
+#  ForwardX11Trusted yes
+#  TCPKeepAlive yes
+#You can now connect to peer1 using the following syntax:
+#$ ssh server10
 
 #30: It’s your turn to share…
 ## set some other defaults ##
@@ -265,4 +262,4 @@ alias amzcdndel='/home/scripts/admin/cdn/purge_cdn_cache --profile amazon'
 
 ## supply list of urls via file or stdin
 alias cdnmdel='/home/scripts/admin/cdn/purge_cdn_cache --profile akamai --stdin'
-alias amzcdnmdel='/home/scripts/admin/cdn/purge_cdn_cache --profile amazon lllllllllllld
+alias amzcdnmdel='/home/scripts/admin/cdn/purge_cdn_cache --profile amazon lllllllllllld'
