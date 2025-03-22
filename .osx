@@ -91,6 +91,12 @@ defaults write com.apple.AppleMultitouchTrackpad TrackpadRightClick -bool true
 defaults write com.apple.AppleMultitouchTrackpad TrackpadCornerSecondaryClick -int 2
 defaults write NSGlobalDomain ContextMenuGesture -int 1
 
+# Enable 2 button Mode
+defaults write com.apple.driver.AppleBluetoothMultitouch.mouse MouseButtonMode TwoButton
+
+# Enable 1 button scroll gesture
+defaults write -g com.apple.trackpad.scrollBehavior 1
+
 # Disable press-and-hold for keys in favor of key repeat
 defaults write NSGlobalDomain ApplePressAndHoldEnabled -bool false
 
@@ -105,6 +111,9 @@ defaults write NSGlobalDomain NSAutomaticSpellingCorrectionEnabled -bool false
 ###############################################################################
 # Screen                                                                      #
 ###############################################################################
+
+# Displays have separate Spaces (Every external display has a SPace)
+defaults write com.apple.spaces "spans-displays" -bool "false" # && killall SystemUIServer
 
 # Save screenshots to Downloads folder.
 defaults write com.apple.screencapture location -string "${HOME}/Downloads"
