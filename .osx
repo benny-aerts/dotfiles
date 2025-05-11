@@ -196,9 +196,15 @@ chflags nohidden ~/Library
 # Menu and Titlebar                                                           #
 ###############################################################################
 
-# Show battery percentage in menubar
-defaults write com.apple.menuextra.battery -ShowPercent YES
+# remove battery percentage in menubar
+# defaults write com.apple.menuextra.battery -ShowPercent YES
+defaults write com.apple.menuextra.battery ShowPercent NO
+defaults write com.apple.systemuiserver dontAutoLoad -array "/System/Library/CoreServices/Menu Extras/Battery.menu"
 
+# remove clock from menubar
+defaults write com.apple.menuextra.clock IsAnalog -bool false
+defaults write com.apple.menuextra.clock ShowDate -bool false
+defaults write com.apple.menuextra.clock ShowTime -bool false
 ###############################################################################
 # Dock, Dashboard, and hot corners                                            #
 ###############################################################################
